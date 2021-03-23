@@ -1,0 +1,22 @@
+{
+  "name": "site",
+  "version": "0.1.0",
+  "description": "Static site generated with Zola and TailwindCSS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build styles/styles.css --out-dir static/styles --no-source-maps",
+    "watch": "parcel watch styles/styles.css --out-dir static/styles --no-hmr --no-source-maps"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arya-k/site.git"
+  },
+  "author": "Arya Kumar",
+  "license": "",
+  "homepage": "https://github.com/arya-k/site#readme",
+  "dependencies": {
+    "parcel-bundler": "^1.12.5",
+    "tailwindcss": "^2.0.4"
+  }
+}
