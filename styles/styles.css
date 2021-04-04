@@ -1,7 +1,17 @@
 @tailwind base;
-@tailwind components;
 @tailwind utilities;
 
+
+@layer utilities {
+    .un {
+        background-position: 0 1.24em;
+        background-repeat: repeat-x;
+        background-size: 1px .05em;
+        @apply bg-gradient-to-r;
+    }
+}
+
 a {
-    @apply underline hover:text-gray-500;
+    @apply no-underline un hover:text-gray-500 from-green-500 to-green-500 text-black;
+    background-size: 1px 0.1em;
 }

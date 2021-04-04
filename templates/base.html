@@ -3,26 +3,28 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width,initial-scale=1,shrink-to-fit=no" name="viewport" />
+    <title> {% block title %}{% endblock title %} </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+    <meta name="description" content="Arya Kumar's personal website." />
+
+    <!-- Favicon -->
     <meta content="#000000" name="theme-color" />
-    <link href="/icons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
     <link href="/icons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
     <link href="/icons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
-    <link href="/icons/site.webmanifest" rel="manifest" />
     <link color="#5bbad5" href="/icons/safari-pinned-tab.svg" rel="mask-icon" />
-    <link href="/icons/favicon.ico" rel="shortcut icon" />
-    <meta content="#2b5797" name="msapplication-TileColor" />
-    <meta content="/icons/browserconfig.xml" name="msapplication-config" />
-    <meta content="#ffffff" name="theme-color" />
-    <title> {% block title %}{% endblock title %} </title>
+
+    <!-- Stylesheet -->
+    <link rel="preload" href="{{ get_url(path='styles.css', cachebust=true, trailing_slash=false) }}" as="style" />
     <link href="{{ get_url(path='styles.css', cachebust=true, trailing_slash=false) }}" rel="stylesheet"
         type="text/css" />
+
     <!-- Font -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,600;1,300;1,600&family=Raleway:ital,wght@0,400;1,400&display=swap">
 </head>
 
-<body>
+<body class="bg-offwhite">
     {% block content %}{% endblock content %}
 </body>
 

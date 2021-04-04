@@ -1,23 +1,26 @@
 {% extends "base.html" %}
 {% block title %}Arya Kumar{% endblock title %}
 {% block content %}
-    <div class="p-12 max-w-2xl leading-5 space-y-5 font-sans">
+<div class="p-12 space-y-5 font-mono">
+    <p>
+        <span class="font-semibold italic text-5xl text-gray-700 tracking-tight">Hi! I'm Arya Kumar,</span> <br />
+        <span class="font-light text-3xl text-gray-700">a computer science student at UofM.</span> <br />
+    </p>
+    <div class="max-w-3xl text-xl space-y-5">
         <p>
-            Hi! I'm Arya Kumar, a computer science student at UofM. I have a passion for high quality software, and pure mathematics.
-        </p>
-        <p>
-            I'm currently a full time student, but sometimes I'll write things on my
-            <a href="/blog/">blog</a>.
+            I have a passion for <span class="italic">high quality software</span> and
+            <span class="italic">pure mathematics</span>. I'm currently a full time student,
+            but sometimes I'll write things on my <a href="/blog/">blog</a>.
         </p>
         <p>
             I go by the handle
-            <code class="font-sans bg-black bg-opacity-5 rounded px-1.5 select-all">@arya-k</code>
-            on
+            <code class="bg-black bg-opacity-5 rounded px-1.5 select-all">@arya-k</code> on
             <a href="https://github.com/arya-k">Github</a>,
             <a href="https://linkedin.com/in/arya-k">LinkedIn</a>, and
             <a href="https://devpost.com/arya-k">Devpost</a>. Feel free to check out my
-            <a href="static/arya_kumar_resume.pdf">resume</a>, or send me an email at
-            <a href="mailto:arkumar@umich.edu">arkumar@umich.edu</a>.
+            <a href="static/arya_kumar_resume.pdf">resume</a>, or send me an
+            <a href="mailto:arkumar@umich.edu">email</a>.
         </p>
     </div>
+</div>
 {% endblock content %}
