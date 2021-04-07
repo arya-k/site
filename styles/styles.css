@@ -7,9 +7,6 @@
         background-position: 0 1.24em;
         background-repeat: repeat-x;
         background-size: 1px .05em;
-    }
-
-    .un:not(:hover) {
         @apply bg-gradient-to-r;
     }
 }

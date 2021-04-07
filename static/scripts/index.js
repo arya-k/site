@@ -1,7 +1,7 @@
 // Animate links:
 annotate = RoughNotation.annotate
 document.querySelectorAll("a").forEach((item) => {
-    item.animation = annotate(item, { type: 'circle', color: '#26c98c', iterations: 1, strokeWidth: 3 })
+    item.animation = annotate(item, { type: 'highlight', color: '#26c98c' })
     item.onmouseover = (_) => { item.animation.show(); item.classList.remove('un'); }
     item.onmouseout = (_) => { item.animation.hide(); }
 
