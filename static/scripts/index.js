@@ -11,48 +11,79 @@ document.querySelectorAll("a").forEach((item) => {
 const canvas = document.getElementById('animation')
 const ctx = canvas.getContext('2d');
 let [mx, my] = [0, 0]
-window.onmousemove = (e) => { [mx, my] = [e.clientX, e.clientY]; }
+window.onmousemove = (e) => [mx, my] = [e.clientX, e.clientY];
+window.ontouchmove = (e) => [mx, my] = [e.touches[0].clientX, e.touches[0].clientY];
 
 // Actual animation:
 class Walker {
-    constructor() {
-        [this.x, this.y] = [window.innerWidth, window.innerHeight];
-        this.hue = 160;
+    constructor(clone) {
+        if (clone !== undefined) {
+            [this.x, this.y, this.hue] = [clone.x, clone.y, clone.hue];
+        } else {
+            [this.x, this.y] = [window.innerWidth, window.innerHeight];
+            this.hue = 160;
+        }
     }
+
     draw() {
         const forward = Math.random() * 3;
         const lateral = (Math.random() * 6) - 3;
 
-        // interactive: mouse movement:
-        if ((mx - this.x) ** 2 + (my - this.y) ** 2 < 50 ** 2) {
-            console.log("TODO:interactivity");
+        const norm2 = (mx - this.x) ** 2 + (my - this.y) ** 2;
+        if (norm2 < 100 ** 2) {
+            const [dy, dx] = [(my - this.y) / (norm2 ** .5), (mx - this.x) / (norm2 ** .5)];
+            this.x += (dx * forward) + (dy * lateral);
+            this.y += (dy * forward) - (dx * lateral);
+        } else {
+            this.x -= forward + lateral;
+            this.y -= forward - lateral;
         }
 
-        this.x -= forward + lateral;
-        this.y -= forward - lateral;
-        this.hue += (Math.random() * 6) - 3;
-
+        this.hue = (this.hue + (Math.random() * 6) - 3) % 360;
         if (this.x < 0) this.x += canvas.width;
         if (this.y < 0) this.y += canvas.height;
-        this.hue %= 360;
 
         ctx.fillStyle = "hsla(" + this.hue + ",100%,50%,0.5)";
         ctx.fillRect(this.x, this.y, 7, 7)
     }
 }
-var walker = new Walker()
+
+class WalkerManager {
+    constructor() {
+        this.reset()
+    }
+
+    reset() {
+        ctx.fillStyle = "rgb(254, 251, 244)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        this.walkers = [new Walker()]
+    }
+
+    draw() {
+        let idx = Math.floor(Math.random() * this.walkers.length);
+        if (this.walkers.length < 100 && Math.random() < 0.007) {
+            this.walkers.push(new Walker(this.walkers[idx]));
+        }
+        if (this.walkers.length > 2 && Math.random() < (0.002 * this.walkers.length)) {
+            this.walkers.shift();
+        }
+        this.walkers.forEach((walker) => walker.draw());
+    }
+}
+var wm = new WalkerManager()
 
 // Animation loop
 function update() {
     ctx.fillStyle = "rgba(254, 251, 244, 0.03)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    walker.draw();
+    wm.draw();
     requestAnimationFrame(update);
 }
 
-function init() {
+function reset() {
     [canvas.width, canvas.height] = [window.innerWidth, window.innerHeight];
+    wm.reset();
 }
 
-window.onresize = init;
-window.onload = () => { init(); requestAnimationFrame(update); }
+window.onresize = reset;
+window.onload = () => { reset(); requestAnimationFrame(update); }
