@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch:css": "postcss styles/styles.css -o static/styles.css -w",
-    "build:css": "postcss styles/styles.css -o static/styles.css"
+    "watch:css": "NODE_ENV=development postcss styles/styles.css -o static/styles.css -w",
+    "build:css": "NODE_ENV=production postcss styles/styles.css -o static/styles.css"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,8 @@
   "homepage": "https://github.com/arya-k/site#readme",
   "dependencies": {
     "autoprefixer": "^10.2.5",
-    "postcss": "^8.2.8",
+    "postcss": "^8.2.13",
     "postcss-cli": "^8.3.1",
-    "tailwindcss": "^2.0.4"
+    "tailwindcss": "^2.1.2"
   }
 }

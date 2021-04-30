@@ -10,9 +10,8 @@ document.querySelectorAll("a").forEach((item) => {
 // Canvas mouse tracking:
 const canvas = document.getElementById('animation')
 const ctx = canvas.getContext('2d');
-let [mx, my] = [0, 0]
-window.onmousemove = (e) => [mx, my] = [e.clientX, e.clientY];
-window.ontouchmove = (e) => [mx, my] = [e.touches[0].clientX, e.touches[0].clientY];
+let [mx, my, mt] = [NaN, NaN, 0]
+window.onmousemove = (e) => [mx, my, mt] = [e.clientX, e.clientY, Date.now()];
 
 // Actual animation:
 class Walker {
@@ -30,7 +29,7 @@ class Walker {
         const lateral = (Math.random() * 6) - 3;
 
         const norm2 = (mx - this.x) ** 2 + (my - this.y) ** 2;
-        if (norm2 < 100 ** 2) {
+        if (norm2 < 300 ** 2 && Date.now() - mt < 100) {
             const [dy, dx] = [(my - this.y) / (norm2 ** .5), (mx - this.x) / (norm2 ** .5)];
             this.x += (dx * forward) + (dy * lateral);
             this.y += (dy * forward) - (dx * lateral);

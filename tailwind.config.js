@@ -1,6 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
+    mode: 'jit',
     purge: ["./templates/**/*.html", "./theme/**/*.html"],
     theme: {
         extend: {
@@ -13,5 +14,4 @@ module.exports = {
             }
         }
     },
-    variants: {}
 }
