@@ -1,11 +1,19 @@
 {% extends "base.html" %}
+{% block title %}Arya's Blog{% endblock title %}
 
 {% block content %}
-<div class="markdown-content">
-    <h1 class="title">
-        {{ page.title }}
-    </h1>
-    <p class="subtitle"><strong>{{ page.date }}</strong></p>
-    {{ page.content | safe }}
+<div class="justify-content h-screen w-1/2 max-w-2xl mx-auto space-y-10 pt-16 font-mono text-center">
+    <div
+        class="inline-block font-black italic text-4xl md:text-6xl lg:text-8xl text-offwhite tracking-tight pl-3 pt-2 pb-4 bg-bluenote hover:bg-opacity-80 rounded-lg">
+        <a href="/blog">blog.</a>
+    </div>
+
+    <div class="bg-bluenote bg-opacity-5 rounded-xl p-10 text-left space-y-3">
+        <a class="no-underline un from-green-500 to-green-500 text-4xl text-gray-600 tracking-tight font-semibold hover:text-opacity-80"
+            href="{{ page.path }}">
+            {{ page.title | lower }}.</a>
+        <p class="text-sm text-gray-400 italic">{{ page.date }}</p>
+        <article class="prose lg:prose-xl">{{ page.content | safe }}</article>
+    </div>
 </div>
 {% endblock content %}

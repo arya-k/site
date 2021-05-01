@@ -1,6 +1,6 @@
 @tailwind base;
 @tailwind utilities;
-
+@tailwind components;
 
 @layer utilities {
     .un {
@@ -11,7 +11,7 @@
     }
 }
 
-a {
+.ref {
     @apply no-underline un from-green-500 to-green-500 text-black;
     background-size: 1px 0.1em;
 }

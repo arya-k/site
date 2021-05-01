@@ -1,12 +1,22 @@
 {% extends "base.html" %}
+{% block title %}Arya's Blog{% endblock title %}
 
 {% block content %}
-<h1 class="title">
-    {{ section.title }}
-</h1>
-<ul>
+<div class="justify-content h-screen w-4/5 lg:w-1/2 max-w-2xl mx-auto space-y-10 pt-16 font-mono text-center">
+    <div
+        class="inline-block font-black italic text-4xl md:text-6xl lg:text-8xl text-offwhite tracking-tight pl-3 pt-2 pb-4 bg-bluenote hover:bg-opacity-80 rounded-lg">
+        <a href="/blog">blog.</a>
+    </div>
+
     {% for page in section.pages %}
-    <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
+    <div class="bg-bluenote bg-opacity-5 rounded-xl p-10 text-left space-y-3">
+        <a class="no-underline un from-green-500 to-green-500 text-2xl md:text-3xl lg:text-4xl text-gray-600 tracking-tight font-semibold hover:text-opacity-80"
+            href="{{ page.path }}">
+            {{ page.title | lower }}.</a>
+        <p class="text-sm md:text-md lg:text-lg text-gray-600">{{ page.description }}</p>
+        <p class="text-xs lg:text-sm text-gray-400 italic">{{ page.date }}</p>
+    </div>
     {% endfor %}
-</ul>
+
+</div>
 {% endblock content %}

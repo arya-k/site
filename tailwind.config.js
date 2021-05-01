@@ -1,12 +1,14 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-    mode: 'jit',
     purge: ["./templates/**/*.html", "./theme/**/*.html"],
     theme: {
         extend: {
             colors: {
-                'offwhite': '#fefbf4'
+                'offwhite': '#fefbf4',
+                'mustard': '#f3ae56',
+                'bluenote': '#326cf2',
+                'fuschia': '#7169ca',
             },
             fontFamily: {
                 mono: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
@@ -14,4 +16,7 @@ module.exports = {
             }
         }
     },
+    pugins: [
+        require('@tailwindcss/typography')
+    ]
 }
