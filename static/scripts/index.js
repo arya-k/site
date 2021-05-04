@@ -2,9 +2,8 @@
 annotate = RoughNotation.annotate
 document.querySelectorAll("a").forEach((item) => {
     item.animation = annotate(item, { type: 'highlight', color: '#26c98c' })
-    item.onmouseover = (_) => { item.animation.show(); item.classList.remove('un'); }
+    item.onmouseover = (_) => { item.animation.show(); }
     item.onmouseout = (_) => { item.animation.hide(); }
-
 });
 
 // Canvas mouse tracking:

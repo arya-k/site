@@ -1,7 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-    purge: ["./templates/**/*.html", "./theme/**/*.html"],
+    purge: ["./templates/**/*.html", "./styles/styles.css"],
     theme: {
         extend: {
             colors: {
@@ -12,11 +12,7 @@ module.exports = {
             },
             fontFamily: {
                 mono: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
-                sans: ['Raleway', ...defaultTheme.fontFamily.sans]
             }
         }
-    },
-    pugins: [
-        require('@tailwindcss/typography')
-    ]
+    }
 }

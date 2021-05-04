@@ -2,16 +2,47 @@
 @tailwind utilities;
 @tailwind components;
 
-@layer utilities {
+@layer base {
     .un {
         background-position: 0 1.24em;
         background-repeat: repeat-x;
-        background-size: 1px .05em;
-        @apply bg-gradient-to-r;
+        background-size: 1px .1em;
+        @apply no-underline bg-gradient-to-r from-green-500 to-green-500 text-black;
     }
+
+    /* Custom styling in post bodies */
+    article {
+        @apply space-y-7 text-gray-600 tracking-tight leading-relaxed text-sm lg:text-base;
+    }
+
+    article a {
+        @apply un hover:text-opacity-80;
+        background-size: 1px 1em;
+    }
+
+    article ul,ol { @apply ml-12 space-y-2 }
+    article ol { @apply list-decimal }
+    article ul { @apply list-disc }
+    article li p { @apply inline }
+    
+    article kbd {
+        @apply border-fuschia rounded border px-1 text-fuschia font-light bg-fuschia bg-opacity-5;
+    }
+    article blockquote { @apply italic ml-4 pl-4 border-l-4 border-green-500; }
+
+    article h1,h2,h3,h4 { @apply font-semibold }
+    article h1 { @apply text-2xl lg:text-3xl }
+    article h1:before { content: "# "; @apply text-green-500 font-light; }
+    article h2 { @apply text-xl lg:text-2xl }
+    article h2:before { content: "## "; @apply text-green-500 font-light; }
+    article h3 { @apply text-lg lg:text-xl }
+    article h3:before { content: "### "; @apply text-green-500 font-light; }
+    article h4 { @apply text-base lg:text-lg }
+    article h4:before { content: "#### "; @apply text-green-500 font-light; }
+
+    article code { @apply select-all }
+    article pre { @apply rounded-2xl p-4; }
+    article :not(pre) code { @apply bg-gray-300 rounded italic }
+    article :not(pre) code:before, article :not(pre) code:after { content: '`'; }
 }
 
-.ref {
-    @apply no-underline un from-green-500 to-green-500 text-black;
-    background-size: 1px 0.1em;
-}
