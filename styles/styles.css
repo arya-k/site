@@ -20,7 +20,7 @@
         background-size: 1px 1em;
     }
 
-    article ul,ol { @apply ml-12 space-y-2 }
+    article ul,ol { @apply ml-4 space-y-2 }
     article ol { @apply list-decimal }
     article ul { @apply list-disc }
     article li p { @apply inline }
@@ -41,8 +41,8 @@
     article h4:before { content: "#### "; @apply text-green-500 font-light; }
 
     article code { @apply select-all }
-    article pre { @apply rounded-2xl p-4; }
-    article :not(pre) code { @apply bg-gray-300 rounded italic }
+    article pre { @apply rounded-2xl p-4 overflow-x-auto; }
+    article :not(pre) code { @apply bg-gray-300 rounded italic break-all }
     article :not(pre) code:before, article :not(pre) code:after { content: '`'; }
 }
 
