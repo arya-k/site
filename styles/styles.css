@@ -4,7 +4,7 @@
 
 @layer base {
     .un {
-        background-position: 0 1.24em;
+        background-position: 0 1.1em;
         background-repeat: repeat-x;
         background-size: 1px .1em;
         @apply no-underline bg-gradient-to-r from-green-500 to-green-500 text-black;
@@ -13,11 +13,6 @@
     /* Custom styling in post bodies */
     article {
         @apply space-y-7 text-gray-600 tracking-tight leading-relaxed text-sm lg:text-base;
-    }
-
-    article a {
-        @apply un hover:text-opacity-80;
-        background-size: 1px 1em;
     }
 
     article ul,ol { @apply ml-4 space-y-2 }
@@ -29,6 +24,7 @@
         @apply border-fuschia rounded border px-1 text-fuschia font-light bg-fuschia bg-opacity-5;
     }
     article blockquote { @apply italic ml-4 pl-4 border-l-4 border-green-500; }
+    article a { @apply un text-gray-600 hover:text-opacity-80; }
 
     article h1,h2,h3,h4 { @apply font-semibold }
     article h1 { @apply text-2xl lg:text-3xl }

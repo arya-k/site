@@ -2,6 +2,8 @@
 title = "bc19 post-mortem: plzgoeasy"
 date = 2019-02-02
 description = "My thoughts on BattleCode 2019, competing as team plzgoeasy in MIT's annual competition."
+[extra]
+tags = ["java", "post-mortem"]
 +++
 
 This year I did BattleCode with Alan Zheng and Ajith Kemisetti, two of my classmates at Thomas Jefferson HS for Science and Technology. Our bot, _plzgoeasy_, was moderately successful, placing 7th in the seeding tournament. So, in keeping with a [long tradition](http://www.anatid.net/2014/12/battlecode-links.html) of post-mortems, here are my thoughts on BattleCode 2019.

@@ -3,9 +3,16 @@
 
 {% block posts %}
 <div class="bg-bluenote bg-opacity-5 rounded-xl p-10 text-left space-y-3">
-    <a class="no-underline un from-green-500 to-green-500 text-2xl sm:text-3xl lg:text-4xl text-gray-600 tracking-tight font-semibold hover:text-opacity-80"
+    <a class="un text-2xl sm:text-3xl lg:text-4xl text-gray-600 tracking-tight font-semibold hover:text-opacity-80"
         href="{{ page.path }}">
         {{ page.title | lower }}.</a>
+    {% if "tags" in page.extra %}
+    <p class="text-xs md:text-sm text-purple-50 italic">
+        {% for tag in page.extra.tags %}
+        <span class="bg-fuschia rounded-full py-1 px-2">{{ tag }}</span>
+        {% endfor %}
+    </p>
+    {% endif %}
     <p class="text-xs lg:text-sm text-gray-400 italic">{{ page.date }}</p>
     <article>{{ page.content | safe }}</article>
 </div>
