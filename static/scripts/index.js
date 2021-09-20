@@ -1,11 +1,3 @@
-// Animate links:
-annotate = RoughNotation.annotate
-document.querySelectorAll("a").forEach((item) => {
-    item.animation = annotate(item, { type: 'highlight', color: '#26c98c' })
-    item.onmouseover = (_) => { item.animation.show(); }
-    item.onmouseout = (_) => { item.animation.hide(); }
-});
-
 // Canvas mouse tracking:
 const canvas = document.getElementById('animation')
 const ctx = canvas.getContext('2d');
