@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://arya-k.dev"
+base_url = "https://arya-k.com"
 
 [markdown]
 # Whether to do syntax highlighting
